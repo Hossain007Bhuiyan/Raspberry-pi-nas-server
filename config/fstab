@@ -1,0 +1,18 @@
+# /etc/fstab — Drive Mount Configuration
+# Replace YOUR_4TB_UUID and YOUR_650GB_UUID with your actual UUIDs (find them with: sudo blkid)
+# Replace YOUR_NEXTCLOUD_ADMIN with your actual Nextcloud admin username
+
+# 4TB HDD — primary storage
+UUID=YOUR_4TB_UUID /mnt/drive4tb ext4 defaults,auto,nofail,noatime 0 2
+
+# 650GB HDD — secondary storage
+UUID=YOUR_650GB_UUID /mnt/650GB ext4 defaults,nofail 0 2
+
+# Bind mount — makes 650GB visible inside Nextcloud as a folder
+/mnt/650GB /mnt/drive4tb/nextcloud-data/YOUR_NEXTCLOUD_ADMIN/files/650GB none bind 0 0
+
+# IMPORTANT NOTES:
+# - nofail: Pi still boots even if a drive is disconnected (CRITICAL for remote access)
+# - noatime: Reduces unnecessary writes, extends drive life
+# - Always use UUID, never /dev/sda — device names can change after reboot but UUIDs never do
+# - Always back up before editing: sudo cp /etc/fstab /etc/fstab.backup
