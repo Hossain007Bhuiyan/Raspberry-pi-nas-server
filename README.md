@@ -11,7 +11,7 @@ A complete, fully working **self-hosted NAS (Network Attached Storage) server** 
 Runs **Nextcloud + Samba + Tailscale VPN** — WiFi only, headless setup with no monitor or keyboard required.
 All real-world errors encountered and solved. Fully tested and working.
 
-> **Your private Google Drive — accessible from anywhere in the world, secured by VPN.**
+> **Your private Home Cloud — accessible from anywhere in the world, secured by VPN.**
 
 ---
 
@@ -43,8 +43,6 @@ All real-world errors encountered and solved. Fully tested and working.
 ---
 
 ## Your Setup Reference
-
-> ⚠️ **Fill in your own values below. Never share this table publicly with real passwords.**
 
 | Your Setup Info | Value |
 |---|---|
@@ -83,7 +81,7 @@ All real-world errors encountered and solved. Fully tested and working.
 
 ![Hardware — RSHTECH Docking Station with Seagate IronWolf 4TB HDD](images/hardware-hdd-dock.jpg)
 
-> The RSHTECH USB 3.0 docking station holds the 4TB Seagate IronWolf (right) and the 650GB laptop HDD (left). Both connect to the Pi via a single USB 3.0 cable.
+> The RSHTECH USB 3.0 docking station holds the 4TB Seagate IronWolf and the 650GB laptop HDD. Both connect to the Pi via a single USB 3.0 cable.
 
 ---
 
@@ -167,7 +165,7 @@ SSH is how you type commands on the Pi from another device. This is your only wa
 
 ### 0.1 — Connect from MacBook (Terminal)
 
-Open Terminal: Applications → Utilities → Terminal
+Open Terminal
 
 **When on HOME WiFi:**
 ```bash
@@ -197,7 +195,7 @@ Install **Termius** from App Store (free by Termius).
 - Username: `YOUR_SSH_USERNAME`
 - Password: `YOUR_SSH_PASSWORD`
 - Tap Save → tap the host to connect
-- First time only: tap Continue when asked about fingerprint
+- First time only: tap Continue when asked about password
 
 **Global access (from anywhere):**
 - Make sure Tailscale is ON on iPhone first
@@ -206,21 +204,19 @@ Install **Termius** from App Store (free by Termius).
 
 ### 0.3 — Connect from Android
 
-Install **JuiceSSH** from Play Store (free by Sonelli).
+Install **JuiceSSH** from Play Store.
 
 - Open JuiceSSH → Connections tab → tap `+` (bottom right)
 - Nickname: `NAS Pi Home` → Type: SSH → Address: `YOUR_LOCAL_IP`
 - Tap identity field → New Identity → enter your username and password → Save
 - Tap Save → tap connection to connect
-- First time: tap Accept when asked about fingerprint
+- First time: tap Accept when asked about password
 
 For global access: create same connection with Address: `YOUR_TAILSCALE_IP`
 
 ### 0.4 — Connect from Windows
 
-Windows 10 and 11 have SSH built in — no extra app needed.
-
-Open PowerShell (press Windows key → search PowerShell → open it):
+Windows 10 and 11 have SSH built in — no extra app needed:
 ```powershell
 ssh YOUR_SSH_USERNAME@YOUR_LOCAL_IP
 ```
@@ -259,7 +255,7 @@ If ping fails: open router admin page → Connected Devices → find naspi → u
 
 ---
 
-## Part 1 — Install Raspberry Pi OS (WiFi-Only Headless Setup)
+## Part 1 — Install Raspberry Pi OS (WiFi Headless Setup)
 
 > **INFO:** Headless setup means no monitor, no keyboard, no Ethernet. Everything is configured inside Raspberry Pi Imager on your MacBook or Windows PC BEFORE the first boot.
 
@@ -293,17 +289,14 @@ If ping fails: open router admin page → Connected Devices → find naspi → u
 | Timezone | Your timezone — e.g. `Europe/Stockholm` |
 | Keyboard | Your keyboard layout |
 
-> ⚠️ **WiFi Country is absolutely critical.** Without it the Pi's WiFi hardware is disabled by law. You will have no connection at all and cannot connect remotely.
-
 Click Save → Yes → confirm erase → Yes.
 Wait 5–15 minutes. Do NOT remove the card until Imager says **Write Successful**.
 
-**Eject microSD on MacBook:** Finder → right-click card → Eject
-**Eject microSD on Windows:** System tray (bottom right) → Safely Remove Hardware → Eject → then remove
+**Eject microSD on safely:**
 
 ### 1.3 — First Boot
 
-- Insert microSD into Pi — underside slot, gold contacts face the board, it clicks into place
+- Insert microSD into Pi
 - Do NOT connect HDDs yet
 - Connect USB-C power cable — red LED solid, green LED flashing = Pi is booting
 - Wait **2 full minutes** for first boot to complete
@@ -353,17 +346,17 @@ Wait 1 minute after reboot, then SSH back in.
 
 ![RSHTECH USB 3.0 Docking Station with Seagate IronWolf 4TB HDD and 650GB laptop HDD](images/hardware-hdd-dock.jpg)
 
-- Insert 4TB HDD (3.5 inch) into Bay A of the dock
-- Insert 650GB HDD (2.5 inch) into Bay B of the dock
+- Insert 4TB HDD or your desire HDD (3.5 or 2.5 inch) into Bay A of the dock
+- Insert 650GB HDD or your desire HDD (3.5 or 2.5 inch) into Bay B of the dock
 - Connect the 12V power adapter to dock and wall socket
 - Connect USB 3.0 cable from dock to a **blue USB 3.0 port** on the Pi (blue = USB 3.0 = faster)
 - Turn on the power switch on the back of the dock — drive lights should turn on
 
 > ⚠️ Connect dock power FIRST, then the USB cable to Pi. Never connect or disconnect HDDs while the Pi is running — always shut down first.
 
-### 2.2 — Format 650GB drive to ext4 (one time only)
+### 2.2 — Format drive to ext4 (one time only)
 
-> ⚠️ This erases ALL data on the 650GB drive. Make sure anything important is already backed up first.
+> ⚠️ This erases ALL data on the drive. Make sure anything important is already backed up first.
 
 ```bash
 sudo fdisk /dev/sdb
@@ -382,7 +375,7 @@ w    ← write changes and exit
 
 Now format the new partition as ext4:
 ```bash
-sudo mkfs.ext4 -L 650GB /dev/sdb1
+sudo mkfs.ext4 -L 650GB (your desire HDD name) /dev/sdb1
 ```
 
 Wait 1–2 minutes. You will see `done` on each line when finished.
@@ -395,8 +388,8 @@ lsblk
 
 | What you see | What it is |
 |---|---|
-| `sda` (3.6T) with `sda1` | Your 4TB HDD — ext4 format |
-| `sdb` (596G) with `sdb1` | Your 650GB HDD — ext4 format |
+| `sda` (3.6T) with `sda1` | Your 4TB HDD (your desire HDD name) — ext4 format |
+| `sdb` (596G) with `sdb1` | Your 650GB (your desire HDD name) HDD — ext4 format |
 | `mmcblk0` (119G) | Your microSD card — **NEVER touch this** |
 
 ### 2.4 — Find UUIDs of both drives
@@ -408,14 +401,14 @@ sudo blkid
 > ⚠️ Always use UUID in fstab, never device names like `/dev/sda`. Device names can swap after reboot but UUIDs never change.
 
 Write down your UUIDs from the output:
-- **4TB drive UUID:** `YOUR_4TB_UUID`
-- **650GB drive UUID:** `YOUR_650GB_UUID`
+- **4TB drive UUID:** `YOUR_DRIVE_UUID`
+- **650GB drive UUID:** `YOUR_DRIVE_UUID`
 
 ### 2.5 — Create mount point folders
 
 ```bash
-sudo mkdir -p /mnt/drive4tb
-sudo mkdir -p /mnt/650GB
+sudo mkdir -p /mnt/drive4tb (your desire HDD name)
+sudo mkdir -p /mnt/650GB (your desire HDD name)
 ```
 
 These are the folders where your drives will appear in the Linux file system.
