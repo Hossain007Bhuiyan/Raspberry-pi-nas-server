@@ -323,6 +323,6 @@ raspberry-pi-nas-server/
 **Built by Md Motaher Hossain Bhuiyan**
 
 *Self-hosted NAS infrastructure — fully designed, built, configured, automated, and documented from scratch.*
-*Real-world production setup in Sweden — every error encountered is solved and documented.*
+*Real-world setup in Sweden — every error encountered is solved and documented.*
 
 </div>
