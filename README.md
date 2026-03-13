@@ -17,7 +17,7 @@
 
 <br>
 
-![Hardware — RSHTECH Docking Station with Seagate IronWolf 4TB HDD](images/hardware-hdd-dock.jpg)
+![Hardware — RSHTECH Docking Station with Seagate IronWolf 3.5 4TB HDD and 650GB old laptop 2.5 HDD](images/hardware-hdd-dock.jpg)
 
 </div>
 
