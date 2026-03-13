@@ -52,16 +52,16 @@ Login: `YOUR_NEXTCLOUD_ADMIN` / `YOUR_NEXTCLOUD_PASSWORD`
 
 Login: `YOUR_NEXTCLOUD_ADMIN` / `YOUR_NEXTCLOUD_PASSWORD`
 
-![iPhone Nextcloud App — showing both 4TB and 650GB drives as folders](../images/iphone-nextcloud-drives.jpg)
+<img src="../images/iphone-nextcloud-drives.jpg" alt="iPhone Nextcloud App — showing both 4TB and 650GB drives as folders" width="300"/>
 
 Inside the 4TB folder — all files and subfolders accessible from anywhere:
 
-![iPhone Nextcloud App — 4TB folder contents](../images/iphone-nextcloud-4tb.jpg)
+<img src="../images/iphone-nextcloud-4tb.jpg" alt="iPhone Nextcloud App — 4TB folder contents" width="300"/>
 
 **Auto photo backup:**
 - Tap menu (3 lines) → Settings → Auto Upload → turn ON
 
-![iPhone Nextcloud Auto Upload settings](../images/iphone-auto-upload.jpg)
+<img src="../images/iphone-auto-upload.jpg" alt="iPhone Nextcloud Auto Upload settings" width="300"/>
 
 Photos automatically back up to 4TB drive whenever on the internet.
 
