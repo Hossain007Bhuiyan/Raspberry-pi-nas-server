@@ -13,7 +13,7 @@
 
 <br>
 
-> **Your private Google Drive — running on your own hardware, accessible from anywhere in the world, secured by VPN.**
+> **Private Home Cloud Drive — running on your own hardware, accessible from anywhere in the world, secured by VPN.**
 
 <br>
 
@@ -29,7 +29,7 @@ This is a **complete, real-world NAS (Network Attached Storage) server** built u
 
 The server runs three services together:
 - **Nextcloud** — private cloud storage, accessible from any browser or app, anywhere in the world
-- **Samba** — makes your drives appear as normal network folders in Finder, Windows Explorer, and iPhone Files app
+- **Samba** — makes your drives appear as normal network folders in Finder, Windows Explorer, iPhone Files app, and Android CX File Explorer
 - **Tailscale VPN** — secure encrypted access from anywhere, with no port forwarding required
 
 Everything was built, tested, and documented from scratch. Every real-world error encountered during setup is solved and documented.
@@ -172,12 +172,12 @@ Everything was built, tested, and documented from scratch. Every real-world erro
                       Tailscale VPN Tunnel
                      (WireGuard encrypted)
                                 │
-         ┌──────────────────────┼──────────────────────┐
-         │                      │                      │
-  ┌──────▼──────┐      ┌────────▼──────┐      ┌───────▼──────┐
-  │   MacBook   │      │    iPhone     │      │  Windows PC  │
-  │  (anywhere) │      │  (anywhere)   │      │  (anywhere)  │
-  └─────────────┘      └───────────────┘      └──────────────┘
+         ┌──────────┬───────────┼───────────┬──────────┐
+         │          │           │           │          │
+  ┌──────▼─────┐ ┌──▼──────┐ ┌─▼───────┐ ┌─▼────────┐
+  │  MacBook   │ │ iPhone  │ │ Android │ │ Windows  │
+  │ (anywhere) │ │(anywhere│ │(anywhere│ │(anywhere)│
+  └────────────┘ └─────────┘ └─────────┘ └──────────┘
 
   Global Tailscale IP: YOUR_TAILSCALE_IP  (permanent — never changes)
 ```
