@@ -52,6 +52,7 @@ Login: `YOUR_NEXTCLOUD_ADMIN` / `YOUR_NEXTCLOUD_PASSWORD`
 
 Login: `YOUR_NEXTCLOUD_ADMIN` / `YOUR_NEXTCLOUD_PASSWORD`
 
+*iPhone Nextcloud App — showing both 4TB and 650GB drives*
 <img src="../images/iphone-nextcloud-drives.jpg" alt="iPhone Nextcloud App — showing both 4TB and 650GB drives as folders" width="300"/>
 
 Inside the 4TB folder — all files and subfolders accessible from anywhere:
