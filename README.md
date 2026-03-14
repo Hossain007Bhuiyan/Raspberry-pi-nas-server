@@ -307,7 +307,7 @@ raspberry-pi-nas-server/
     ├── 11-daily-use.md
     ├── 12-crash-troubleshooting.md
     ├── 13-google-drive-sync.md
-    └── 14-automation.md
+    ├── 14-automation.md
     └── 15-custom-domain.md
 
 ```
