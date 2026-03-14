@@ -183,6 +183,7 @@ Everything was built, tested, and documented from scratch. Every real-world erro
   └────────────┘ └─────────┘ └─────────┘ └──────────┘
 
   Global Tailscale IP: YOUR_TAILSCALE_IP  (permanent — never changes)
+  Custom Domain: YOUR_CUSTOM_DOMAIN       (works at home AND globally)
 ```
 
 ---
