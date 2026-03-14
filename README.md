@@ -224,6 +224,11 @@ The full setup guide is split into separate documents — one for each part. Cli
 | Android CX File Explorer | `YOUR_LOCAL_IP` | `YOUR_TAILSCALE_IP` |
 | Windows File Explorer | `\\YOUR_LOCAL_IP\4TB` | `\\YOUR_TAILSCALE_IP\4TB` |
 | SSH | `ssh YOUR_SSH_USERNAME@YOUR_LOCAL_IP` | `ssh YOUR_SSH_USERNAME@YOUR_TAILSCALE_IP` |
+| `ssh YOUR_SSH_USERNAME@YOUR_CUSTOM_DOMAIN` |
+
+> 💡 Custom domain requires Part 15 setup. IP addresses always work as backup.
+
+
 
 ### Essential Commands
 
