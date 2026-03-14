@@ -191,7 +191,7 @@ When you see the Nextcloud dashboard, installation is complete:
 
 ## 3.9 — Fix 'Access through untrusted domain' error
 
-This error appears when accessing via Tailscale IP. Fix it by adding your IPs to trusted_domains.
+This error appears when accessing via Tailscale IP or custom domain. Fix it by adding all your addresses to trusted_domains.
 
 ```bash
 sudo nano /var/www/nextcloud/config/config.php
@@ -199,15 +199,26 @@ sudo nano /var/www/nextcloud/config/config.php
 
 Use `Ctrl+W` to search for: `trusted_domains`
 
-Change it to look exactly like this — replace `naspi.local` with `YOUR_HOSTNAME.local` if you chose a different hostname:
+Change it to look exactly like this — replace all placeholders with your actual values:
 ```php
 'trusted_domains' =>
 array (
   0 => 'YOUR_LOCAL_IP',
   1 => 'YOUR_TAILSCALE_IP',
-  2 => 'naspi.local',
+  2 => 'YOUR_HOSTNAME.local',
+  3 => 'YOUR_HOSTNAME',
+  4 => 'YOUR_TAILSCALE_MACHINE_FQDN',
+  5 => 'YOUR_CUSTOM_DOMAIN',
 ),
 ```
+
+> **What each entry covers:**
+> - `0` — Local IP access at home
+> - `1` — Tailscale IP access from anywhere
+> - `2` — mDNS hostname on local network (e.g. `naspi.local`)
+> - `3` — Plain hostname (e.g. `naspi`)
+> - `4` — Full Tailscale machine name (e.g. `naspi.tail3195f2.ts.net`) — find yours at https://login.tailscale.com/admin/machines
+> - `5` — Your custom domain (e.g. `hossain.nas`) — set up in Part 15
 
 Save: `Ctrl+X` → `Y` → `Enter`
 
@@ -289,6 +300,62 @@ Both drives are now visible in Nextcloud:
 Activity log tracking all changes automatically:
 
 ![Nextcloud Activity Log — showing automatic file tracking](../images/nextcloud-activity-log.png)
+
+---
+
+## 3.14 — Speed Optimizations for Nextcloud
+
+> Run these steps after Nextcloud is fully installed and working. They make Nextcloud significantly faster for all devices — especially photo browsing and global access.
+
+**Step 1 — Enable HTTP/2:**
+```bash
+sudo a2enmod http2
+sudo systemctl restart apache2
+```
+
+**Step 2 — Fix database and run maintenance:**
+```bash
+sudo -u www-data php /var/www/nextcloud/occ db:add-missing-indices
+sudo -u www-data php /var/www/nextcloud/occ db:add-missing-primary-keys
+sudo -u www-data php /var/www/nextcloud/occ maintenance:repair
+```
+
+**Step 3 — Install and run preview generator:**
+```bash
+sudo -u www-data php /var/www/nextcloud/occ app:install previewgenerator
+```
+
+Run once to generate all existing file previews. This runs in the background — takes several hours depending on how many files you have:
+```bash
+sudo nohup sudo -u www-data php /var/www/nextcloud/occ preview:generate-all \
+  > /home/YOUR_SSH_USERNAME/preview.log 2>&1 &
+```
+
+Check progress anytime:
+```bash
+tail -f /home/YOUR_SSH_USERNAME/preview.log
+```
+
+Check if finished:
+```bash
+ps aux | grep preview
+```
+
+If only the `grep` line shows — finished. ✅
+
+**Step 4 — Add preview cron so new files get previews automatically:**
+```bash
+sudo crontab -u www-data -e
+```
+
+Add this line at the bottom:
+```
+*/30 * * * * php /var/www/nextcloud/occ preview:generate-all
+```
+
+Save: `Ctrl+X` → `Y` → `Enter`
+
+✅ After these steps Nextcloud photo folders and thumbnails load significantly faster from all devices.
 
 ---
 
