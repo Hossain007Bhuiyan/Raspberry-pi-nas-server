@@ -223,7 +223,19 @@ The full setup guide is split into separate documents — one for each part. Cli
 | iPhone Files app — Samba | `smb://YOUR_LOCAL_IP` | `smb://YOUR_TAILSCALE_IP` |
 | Android CX File Explorer | `YOUR_LOCAL_IP` | `YOUR_TAILSCALE_IP` |
 | Windows File Explorer | `\\YOUR_LOCAL_IP\4TB` | `\\YOUR_TAILSCALE_IP\4TB` |
+| SSH | `ssh YOUR_SSH_USERNAME@YOUR_LOCAL_IP` | `ssh YOUR_SSH_USERNAME@YOUR_TAILSCALE_IP` |
+
+
+| Device | Home WiFi | Global (Tailscale ON) | Custom Domain (anywhere) |
+|---|---|---|---|
+| Any browser — Nextcloud | `http://YOUR_LOCAL_IP/nextcloud` | `http://YOUR_TAILSCALE_IP/nextcloud` | `http://YOUR_CUSTOM_DOMAIN/nextcloud` |
+| MacBook Finder — Samba | `smb://YOUR_LOCAL_IP` | `smb://YOUR_TAILSCALE_IP` | `smb://YOUR_CUSTOM_DOMAIN` |
+| iPhone Files app — Samba | `smb://YOUR_LOCAL_IP` | `smb://YOUR_TAILSCALE_IP` | `smb://YOUR_CUSTOM_DOMAIN` |
+| Android CX File Explorer | `YOUR_LOCAL_IP` | `YOUR_TAILSCALE_IP` | `YOUR_CUSTOM_DOMAIN` |
+| Windows File Explorer | `\\YOUR_LOCAL_IP\4TB` | `\\YOUR_TAILSCALE_IP\4TB` | `\\YOUR_CUSTOM_DOMAIN\4TB` |
 | SSH | `ssh YOUR_SSH_USERNAME@YOUR_LOCAL_IP` | `ssh YOUR_SSH_USERNAME@YOUR_TAILSCALE_IP` | `ssh YOUR_SSH_USERNAME@YOUR_CUSTOM_DOMAIN` |
+
+> 💡 Custom domain requires Part 15 setup. IP addresses always work as backup.
 
 > 💡 Custom domain requires Part 15 setup. IP addresses always work as backup.
 
