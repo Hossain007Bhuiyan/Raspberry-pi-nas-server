@@ -208,6 +208,7 @@ The full setup guide is split into separate documents — one for each part. Cli
 | 12 | [Crash Troubleshooting](docs/12-crash-troubleshooting.md) | Unexpected shutdowns, logs, temperature, power |
 | 13 | [Google Drive Sync](docs/13-google-drive-sync.md) | Transfer all Google Drive files directly to NAS |
 | 14 | [Automation](docs/14-automation.md) | 7 automatic tasks — backup, health, sync, alerts |
+| 15 | [Custom Domain](docs/15-custom-domain.md) | One friendly name for home and global access — dnsmasq, per-device DNS setup |
 
 ---
 
