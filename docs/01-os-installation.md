@@ -136,10 +136,12 @@ name automatically — no per-device setup needed at all.
   - **Static DNS**
   - **Host Records**
 
-> ⚠️ Not all routers support this. Routers that commonly do:
-> OpenWrt, pfSense, DD-WRT, Asus (AsusWRT), Synology Router,
-> and some TP-Link and Netgear models in their advanced DNS settings.
-> If you cannot find any of the above options in your router — use Method 2.
+⚠️ Not all routers support this. If your router was provided directly
+by your internet provider (ISP), it is likely locked down — meaning
+the ISP restricts access to advanced settings and local DNS options
+are not available to you. This is common with broadband providers who
+supply their own branded router. If you cannot find any local DNS or
+hostname option in your router admin page — use Method 2.
 
 Add a new entry:
 
