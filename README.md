@@ -17,7 +17,7 @@
 
 <br>
 
-<img src="images/hardware-hdd-dock.jpg" alt="RSHTECH Docking Station with Seagate IronWolf 3.5 4TB HDD and 650GB old laptop 2.5 HDD" width="700"/>
+<img src="images/hardware-hdd-dock.JPG" alt="RSHTECH Docking Station with Seagate IronWolf 3.5 4TB HDD and 650GB old laptop 2.5 HDD" width="700"/>
 
 </div>
 
