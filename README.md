@@ -57,6 +57,7 @@ Everything was built, tested, and documented from scratch. Every real-world erro
 | 🛡️ Firewall protection | UFW configured with minimal open ports |
 | 📌 Static IP | Pi IP never changes after reboot — DHCP reservation |
 | ⚡ nofail drive mounts | Pi boots safely even if a drive is disconnected |
+| 🌍 Custom domain | One friendly name works at home and globally via VPN |
 
 ---
 
