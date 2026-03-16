@@ -157,19 +157,19 @@ Everything was built, tested, and documented from scratch. Every real-world erro
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                     HOME NETWORK                          │
-│                                                           │
-│  ┌──────────┐   WiFi    ┌────────────────────────────┐   │
-│  │  Router  │◄─────────►│      Raspberry Pi 4        │   │
+│                     HOME NETWORK                         │
+│                                                          │
+│  ┌──────────┐   WiFi   ┌─────────────────────────────┐   │
+│  │  Router  │◄────────►│      Raspberry Pi 4         │   │
 │  └──────────┘          │   IP: YOUR_LOCAL_IP         │   │
-│                        │   Hostname: naspi            │   │
-│                        │                             │   │
+│                        │   Hostname: naspi           │   │
+│                        │   Domain:YOUR_CUSTOM_DOMAIN │   │
 │                        │  ┌──────────┐ ┌──────────┐  │   │
 │                        │  │  4TB HDD │ │ 650GB HDD│  │   │
 │                        │  │/mnt/drive│ │/mnt/650GB│  │   │
 │                        │  │   4tb    │ │          │  │   │
 │                        │  └──────────┘ └──────────┘  │   │
-│                        └────────────────────────────┘   │
+│                        └─────────────────────────────┘   │
 └──────────────────────────────────────────────────────────┘
                             │
                    Tailscale VPN Tunnel
