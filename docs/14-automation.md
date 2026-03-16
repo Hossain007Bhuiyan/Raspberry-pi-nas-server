@@ -461,16 +461,19 @@ You should see these 6 lines:
 0 */6 * * * /usr/local/bin/nas-health-alert.sh
 ```
 
-**Check Nextcloud file scan cron (runs separately as www-data):**
+**Check Nextcloud file scan and preview cron (runs separately as www-data):**
 ```bash
 sudo crontab -u www-data -l
 ```
 
-You should see these 2 lines:
+You should see these 3 lines:
 ```
 */5 * * * * php -f /var/www/nextcloud/cron.php
 */5 * * * * php /var/www/nextcloud/occ files:scan --all -q
+*/30 * * * * php /var/www/nextcloud/occ preview:generate-all
 ```
+
+> The third line (`preview:generate-all`) is added in Part 3 Step 14. If you have not completed that step yet, you will only see 2 lines — that is also fine.
 
 ✅ All 7 automations confirmed running. Your NAS is now fully automated.
 
