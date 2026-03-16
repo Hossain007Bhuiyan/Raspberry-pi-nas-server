@@ -58,7 +58,6 @@
 
 ## 10.4 — All Essential Terminal Commands
 
-| Find UUID of drives | `sudo blkid` |
 | Is Nextcloud web server running? | `sudo systemctl status apache2` |
 | Is Samba running? | `sudo systemctl status smbd` |
 | Is Redis cache running? | `sudo systemctl status redis-server` |
