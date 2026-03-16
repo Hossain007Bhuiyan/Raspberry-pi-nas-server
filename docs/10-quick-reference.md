@@ -58,19 +58,17 @@
 
 ## 10.4 — All Essential Terminal Commands
 
-| What you want to do | Command to run via SSH |
-|---|---|
-| Check if drives are mounted and how full | `df -h \| grep /mnt` |
-| See all drives connected to Pi | `lsblk` |
 | Find UUID of drives | `sudo blkid` |
 | Is Nextcloud web server running? | `sudo systemctl status apache2` |
 | Is Samba running? | `sudo systemctl status smbd` |
 | Is Redis cache running? | `sudo systemctl status redis-server` |
 | Is Tailscale connected? | `tailscale status` |
 | What is my Tailscale IP? | `tailscale ip -4` |
+| Is dnsmasq (custom domain DNS) running? | `sudo systemctl status dnsmasq` |
 | Restart Nextcloud (Apache) | `sudo systemctl restart apache2` |
 | Restart Samba | `sudo systemctl restart smbd` |
 | Restart Redis | `sudo systemctl restart redis-server` |
+| Restart dnsmasq | `sudo systemctl restart dnsmasq` |
 | Rescan files for Nextcloud manually | `sudo -u www-data php /var/www/nextcloud/occ files:scan --all` |
 | Start a background file copy | `sudo nohup rsync -av --chown=www-data:www-data /mnt/SOURCE/ /mnt/drive4tb/nextcloud-data/YOUR_NEXTCLOUD_ADMIN/files/4TB/DESTINATION/ > /home/YOUR_SSH_USERNAME/copy-progress.log 2>&1 &` |
 | Check copy progress | `tail -f /home/YOUR_SSH_USERNAME/copy-progress.log` |
@@ -81,8 +79,11 @@
 | Edit Nextcloud config | `sudo nano /var/www/nextcloud/config/config.php` |
 | Edit Samba config | `sudo nano /etc/samba/smb.conf` |
 | Edit drive mount config | `sudo nano /etc/fstab` |
+| Edit dnsmasq config | `sudo nano /etc/dnsmasq.conf` |
 | Test Samba config for errors | `testparm` |
 | Check firewall rules | `sudo ufw status verbose` |
+| Test custom domain DNS from MacBook | `nslookup YOUR_CUSTOM_DOMAIN YOUR_LOCAL_IP` |
+| Flush DNS cache on MacBook | `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder` |
 
 ---
 
