@@ -51,6 +51,8 @@
 | fstab backup | `/etc/fstab.backup` |
 | File copy progress log | `/home/YOUR_SSH_USERNAME/copy-progress.log` |
 | GDrive auto-sync log | `/home/YOUR_SSH_USERNAME/gdrive-auto-sync.log` |
+| dnsmasq config | `/etc/dnsmasq.conf` |
+| macOS resolver file | `/etc/resolver/YOUR_CUSTOM_DOMAIN_SUFFIX` |
 
 ---
 
