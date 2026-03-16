@@ -58,6 +58,11 @@
 
 ## 10.4 — All Essential Terminal Commands
 
+| What you want to do | Command to run via SSH |
+|---|---|
+| Check if drives are mounted and how full | `df -h \| grep /mnt` |
+| See all drives connected to Pi | `lsblk` |
+| Find UUID of drives | `sudo blkid` |
 | Is Nextcloud web server running? | `sudo systemctl status apache2` |
 | Is Samba running? | `sudo systemctl status smbd` |
 | Is Redis cache running? | `sudo systemctl status redis-server` |
