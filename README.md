@@ -331,6 +331,10 @@ raspberry-pi-nas-server/
 
 <div align="center">
 
+## 📄 License
+
+The original scripts, configuration files and documentation in this repository are licensed under the MIT License. Third-party software and services mentioned in this project remain under their respective licenses.
+
 **Built by Md Motaher Hossain Bhuiyan**
 
 *Self-hosted NAS infrastructure — fully designed, built, configured, automated, and documented from scratch.*
