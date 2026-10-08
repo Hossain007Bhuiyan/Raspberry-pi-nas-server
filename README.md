@@ -31,7 +31,7 @@ This is a **complete, real-world NAS (Network Attached Storage) server** built u
 
 The server runs three services together:
 - **Nextcloud** — private cloud storage, accessible from any browser or app, anywhere in the world
-- **Samba** — makes your drives appear as normal network folders in Finder, Windows Explorer, iPhone Files app, and Android CX File Explorer
+- **Samba** — makes your drives appear as normal network folders in Finder, Windows Explorer, iPhone Files app and Android CX File Explorer
 - **Tailscale VPN** — secure encrypted access from anywhere, with no port forwarding required
 
 Everything was built, tested, and documented from scratch. Every real-world error encountered during setup is solved and documented.
@@ -329,15 +329,13 @@ raspberry-pi-nas-server/
 
 ---
 
-<div align="center">
-
 ## 📄 License
 
-The original scripts, configuration files and documentation in this repository are licensed under the MIT License. Third-party software and services mentioned in this project remain under their respective licenses.
+The code is licensed under the [MIT License](https://github.com/Hossain007Bhuiyan/Raspberry-pi-nas-server/blob/main/LICENSE). Third-party software and services mentioned in this project remain under their respective licenses.
 
-**Built by Md Motaher Hossain Bhuiyan**
+Built by Md Motaher Hossain Bhuiyan
 
-*Self-hosted NAS infrastructure — fully designed, built, configured, automated, and documented from scratch.*
-*Real-world setup in Sweden — every error encountered is solved and documented.*
+*Self-hosted NAS infrastructure — fully designed, built, configured, automated and documented from scratch.*
 
-</div>
+*Real-world setup in Sweden, every error encountered is solved and documented.*
+
